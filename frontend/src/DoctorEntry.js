@@ -7,18 +7,20 @@ import { Link, useNavigate } from 'react-router-dom';
 function DoctorEntry() {
   const [formData, setFormData] = useState({
     age: '',
-    diabetesFamily: '',
+    diabetesFamily: 'yes',
     physicalActivity: '',
     fastFoodFrequency: '',
     glucoseLevel: '',
     bloodPressure: '',
     bmi: '',
-    isDiabetic: '' 
+    isDiabetic: 'yes' 
   });
 
   console.log(formData)
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log("Name:", name);
+  console.log("Value:", value);
     if (name === 'diabetesFamily') {
       setFormData(prevState => ({
         ...prevState,
@@ -107,7 +109,7 @@ const navigate=useNavigate();
         </div>
         <div>
           Diabetes in Family:
-          <select name='diabetesFamily' required value={formData.diabetesFamily} onChange={handleChange}>
+          <select name='diabetesFamily' required value={formData.diabetesFamily === 1 ? 'yes' : 'no'} onChange={handleChange}>
             <option value='yes'>Yes</option>
             <option value='no'>No</option>
           </select>
@@ -137,7 +139,7 @@ const navigate=useNavigate();
         </div>
         <div>
           Is the Patient diabetic?
-          <select name='isDiabetic' required value={formData.isDiabetic} onChange={handleChange}>
+          <select name='isDiabetic' required value={formData.isDiabetic === 1 ? 'yes' : 'no'} onChange={handleChange}>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>

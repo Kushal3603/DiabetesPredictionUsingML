@@ -1,14 +1,14 @@
 const mongoose=require('mongoose')
 
 const EntrySchema=new mongoose.Schema({
-  age: String,
-  diabetesFamily:String,
-  physicalActivity:String,
-  fastFoodFrequency: String,
-  glucoseLevel: String,
-  bloodPressure:String,
-  bmi: String,
-  isDiabetic: String
+  Heredity: Number,  
+  PhysicalActivity: Number,
+  FastFood:Number,
+  Glucose: Number,
+  BloodPressure: Number,
+  BMI: Number,
+  Age: Number,
+  Outcome: Number
 })
 
 const EntryModel=mongoose.model("entries",EntrySchema)

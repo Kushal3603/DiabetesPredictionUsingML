@@ -154,12 +154,10 @@ collection = db['entries']
 def myfnc(input_data):
     cursor = collection.find({})
     data = pd.DataFrame(list(cursor))
-    
-    # Drop any rows with missing values in the target variable
-    data = data.dropna(subset=["Outcome"])
 
-    # Ensure 'ObjectId' columns are dropped
-    data = data.drop(columns=["_id"])
+    data = data.dropna(subset=["Outcome"])
+    data = data.drop(columns=["_id","__v"])
+    
     
 
     # Ensure numeric columns are converted to appropriate data types
