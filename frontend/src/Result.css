@@ -10,10 +10,11 @@
 .resultContainer{
     font-size: 1.4em;
     font-family: 'Poppins',sans-serif;
-    width: 700px;
     padding: 25px 40px;
-    height: 520px;
+    height: fit-content;
     backdrop-filter: blur(20px);
+    width: 1000px;
+    padding-top: 50px;
 }
 
 .back{

@@ -179,11 +179,12 @@ def myfnc(input_data):
     model = RandomForestRegressor(n_estimators=100, random_state=42)
     model.fit(X_train_scaled, y_train)
 
-    # Make predictions on the scaled new data
     new_data = [[input_data["heredity"], input_data["physicalActivity"], input_data["junk"], input_data["glucose"], input_data["bp"], input_data["bmi"], input_data["age"]]]
     new_data_scaled = scaler.transform(new_data)
     prediction = model.predict(new_data_scaled)
-    scaled_prediction = int(prediction[0] * 10)
+    scaled_prediction = (prediction[0] * 100)
+    scaled_prediction = str(round(scaled_prediction, 3))
+
     return scaled_prediction
 
 

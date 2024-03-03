@@ -1,8 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import './Test.css'
 import { Questions } from "./Questions";
 import { Link, useNavigate } from "react-router-dom";
-import Result from "./Result";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {
   console.log(heredity, physicalActivity, junk, glucose, bp, bmi, age);
@@ -15,7 +15,7 @@ function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, 
   })
   .then(response => response.json())
   .then(predictions => {
-      console.log('Predictions: ', predictions);
+      console.log('Predictions: ', predictions,'%');
       return predictions;
   })
   .catch(error => {
@@ -28,7 +28,7 @@ function Test() {
   const dropdownStyles = {
     position: 'relative',
   };
-  const [predictions, setPredictions] = useState(0);
+  
   const [index, setIndex] = useState(0);
   const [question, setQuestion] = useState(Questions[index]);
   const [heredity, setHeredity] = useState(null);
@@ -41,7 +41,7 @@ function Test() {
   const [result, setResult] = useState(false);
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [showResult, setShowResult] = useState(false); 
+  const [predictions, setPredictions] = useState(null); 
 
   useEffect(() => {
     if (heredity !== null && physicalActivity !== null && junk !== null && glucose !== null && bp !== null && bmi !== null && age !== null) {
@@ -65,7 +65,7 @@ function Test() {
 
     switch (index) {
       case 1:
-        setHeredity(ans === 1 ? 1 : 0); // If ans is 1 (Yes), set heredity to 1, otherwise set to 0
+        setHeredity(ans === 1 ? 1 : 0);
         break;
       case 3:
         switch (ans) {
@@ -97,20 +97,12 @@ function Test() {
     setIsAnswered(true);
   };
 
-  const handleHeredityChange = (e) => {
-    setHeredity((e.target.value));
-    setIsAnswered(true);
-  };
 
   const handlePhysicalActivity = (e) => {
     setPhysicalActivity(parseInt(e.target.value));
     setIsAnswered(true);
   };
 
-  const handleJunk = (e) => {
-    setJunk(parseFloat(e.target.value));
-    setIsAnswered(true);
-  };
 
   const handleBp = (e) => {
     setBp(parseInt(e.target.value));
@@ -133,13 +125,12 @@ function Test() {
     setJunk(false);
     setPhysicalActivity(0);
     setResult(false);
-    setShowResult(false); 
+    setPredictions(null);
   };
 
   const next = () => {
     if (index === Questions.length - 1) {
       setResult(true);
-      setShowResult(false); 
       return;
     }
     setIndex(prevIndex => prevIndex + 1);
@@ -150,9 +141,10 @@ function Test() {
     navigate('/')
   }
 
-  const handleSeeResult = () => {
-    setShowResult(true);
-    navigate('/result')
+  const handleSeeResult = async () => {
+    const predictions = await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
+    setPredictions(predictions); 
+    navigate('/result', { state: { predictions,bmi,junk } });
   }
   
   return (
@@ -298,7 +290,6 @@ function Test() {
           </>
         )}
       </div>
-      {showResult && <Result data={predictions}/>}
     </>
   );
 }
