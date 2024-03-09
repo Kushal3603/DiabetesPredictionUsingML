@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Result.css';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import Loader from './Loader';
 
-function Loader() {
-  return <div className="loader">Loading...</div>;
-}
+
 
 function Result() {
     const navigate = useNavigate();
@@ -15,10 +14,9 @@ function Result() {
     };
 
     useEffect(() => {
-        // Simulate a delay to show the loader for demonstration purposes
         const timeout = setTimeout(() => {
             setLoading(false);
-        }, 2000); // Adjust the delay as needed
+        }, 2000);
 
         return () => clearTimeout(timeout);
     }, []);
@@ -29,7 +27,7 @@ function Result() {
     return (
         <>
             <header>
-                <h2 className="logo">GlucoWise</h2>
+            <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
                 <nav className="navigation">
                     <Link to="/doctorDashboard">Home</Link>
                     <Link to="#">News</Link>
@@ -38,15 +36,16 @@ function Result() {
                     <button onClick={handleClick} className="loginbtn">Logout</button>
                 </nav>
             </header>
-            <main className="resultContainer">
+            
                 {loading ? (
                     <Loader />
                 ) : (
+                <main className="resultContainer">
                     <ul>
                         {predictions && (
                             <>
                                 <li>
-                                    <p>Probability of Diabetes Type 2 in the future is <b>{predictions}%.</b></p>
+                                    <p>Probability of Diabetes Type 2 in future is <b>{predictions}%.</b></p>
                                 </li>
                                 {predictions > 50 && (
                                     <>
@@ -73,10 +72,12 @@ function Result() {
                             </>
                         )}
                     </ul>
-                )}
-                <center><Link className="back" to="/">Go Back</Link></center><br/><br/>
+                    <center><Link className="back" to="/">Go Back</Link></center><br/>
                 <div className="end"><center><p><i><b>Estimated 1 in 3 will develop this disease.</b></i></p></center></div>
-            </main>
+                </main>
+                )}
+                
+           
         </>
     );
 }

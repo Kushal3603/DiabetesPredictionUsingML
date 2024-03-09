@@ -10,7 +10,7 @@ function DoctorDashboard() {
   return (
     <>
     <header>
-        <h2 className="logo">GlucoWise</h2>
+    <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
           <Link to="#">News</Link>

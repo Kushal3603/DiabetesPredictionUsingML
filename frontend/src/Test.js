@@ -29,6 +29,7 @@ function Test() {
     position: 'relative',
   };
   
+  const [loading, setLoading] = useState(false);
   const [index, setIndex] = useState(0);
   const [question, setQuestion] = useState(Questions[index]);
   const [heredity, setHeredity] = useState(null);
@@ -48,6 +49,7 @@ function Test() {
       const fetchData = async () => {
         const predictions = await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
         setPredictions(predictions);
+        setLoading(false); 
       };
       fetchData();
     }
@@ -141,16 +143,17 @@ function Test() {
     navigate('/')
   }
 
-  const handleSeeResult = async () => {
-    const predictions = await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
+  const handleSeeResult = async() => {
+    setLoading(true);
+    const predictions =  await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
     setPredictions(predictions); 
-    navigate('/result', { state: { predictions,bmi,junk } });
+    navigate('/result', { state: { predictions,bmi,junk,loading } });
   }
   
   return (
     <>
       <header>
-        <h2 className="logo">GlucoWise</h2>
+        <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
           <Link to="#">News</Link>

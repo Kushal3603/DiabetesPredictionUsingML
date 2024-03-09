@@ -9,7 +9,7 @@ function Dashboard() {
   const [username,setUsername]=useState('')
 
   useEffect(() => {
-    const storedUsername = localStorage.getItem('username'); // Retrieve username from local storage
+    const storedUsername = localStorage.getItem('username'); 
     if (storedUsername) {
         setUsername(storedUsername);
     }
@@ -21,7 +21,7 @@ function Dashboard() {
   return (
     <div>
       <header>
-        <h2 className="logo">GlucoWise</h2>
+      <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
           <Link to="#">News</Link>
