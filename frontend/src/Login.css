@@ -5,17 +5,15 @@
     font-family: 'Poppins',sans-serif;
     padding: 0;
     box-sizing: border-box;
-    
-}
+}   
 
 body{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("diabetes.jpeg") no-repeat;
-
-    background-size: 100% 100% ;
+    background-color: darkslategray;
+    /* background: url("diabetes.jpeg") no-repeat; */
     background-position: center;
 }
 .welcome{
@@ -39,7 +37,7 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 0;
-
+    background-color: cadetblue;
 }
 
 .quiz{
@@ -48,7 +46,7 @@ header{
     margin-left: -200px;
     width: 400px;
     background: transparent;
-    background-color: #f6989c;
+    background-color: cadetblue;
     border-radius: 20px;
     font-family: 'Poppins',sans-serif;
     color: #fff;
@@ -67,7 +65,7 @@ header{
 
 .quiz:hover{
     background: #fff;
-    color: #f6989c;
+    color: cadetblue;
     transition: .5s;
 }
 

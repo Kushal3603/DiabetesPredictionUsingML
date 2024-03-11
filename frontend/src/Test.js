@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from "react";
 import './Test.css'
 import { Questions } from "./Questions";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {
   console.log(heredity, physicalActivity, junk, glucose, bp, bmi, age);
@@ -25,6 +26,8 @@ function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, 
 }
 
 function Test() {
+
+  const location=useLocation();
   const dropdownStyles = {
     position: 'relative',
   };
@@ -117,6 +120,7 @@ function Test() {
   }
 
   const reset = () => {
+    setResult(false)
     setIndex(0);
     setSelectedAnswer(null);
     setAge(0);
@@ -144,8 +148,20 @@ function Test() {
   }
 
   const handleSeeResult = async() => {
+    const searchParams = new URLSearchParams(location.search);
+    const email = searchParams.get('email');
+    
+    
+
+    
+    
     setLoading(true);
     const predictions =  await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
+    const data = { email, heredity, physicalActivity, junk, glucose, bp, bmi, age, predictions};
+    console.log(data);
+    axios.post(`http://localhost:3001/test`, data)
+    .then("Data submitted successfully")
+    .catch(e=>console.log(e))
     setPredictions(predictions); 
     navigate('/result', { state: { predictions,bmi,junk,loading } });
   }
@@ -153,6 +169,7 @@ function Test() {
   return (
     <>
       <header>
+
         <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>

@@ -1,19 +1,12 @@
 import React,{useState, useEffect} from 'react';
 import './Login.css';
-import Test from './Test';
 import './DropdownList.css'
-import { Link,useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
-  const [username,setUsername]=useState('')
 
-  useEffect(() => {
-    const storedUsername = localStorage.getItem('username'); 
-    if (storedUsername) {
-        setUsername(storedUsername);
-    }
-}, []);
+  
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -36,7 +29,7 @@ function Dashboard() {
           <Link className="drop" to="/doctorLogin">Login as Doctor</Link>
         </div>
       )}
-      <div>
+      <div style={{backgroundColor:'darkslategray'}}>
         {/* <center className='welcome'><h1>Welcome, {username}!</h1></center> */}
         <center><Link to="/test" type="submit" className="quiz">Take the Test</Link></center>
       </div>

@@ -15,7 +15,7 @@ function Signup() {
         axios.post(`http://localhost:3001/signup`, { username, email, password })
             .then(result => {
                 console.log(result);
-                navigate('/login', { state: { username } }); // Pass username as state
+                navigate('/login', { state: { username } }); 
             })
             .catch(err => console.log(err));
     };

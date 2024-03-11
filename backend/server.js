@@ -4,6 +4,7 @@ const EntryModel=require("./models/Entry")
 const express=require('express');
 const cors=require('cors');
 const  mongoose  = require('mongoose');
+const HistoryModel = require('./models/History');
 const app=express();
 app.use(express.json())
 app.use(cors())
@@ -17,6 +18,8 @@ app.post('/signup',(req,res)=>{
     .then(users=>res.json(users))
     .catch(err=>res.json(err))
 })
+
+
 
 app.post('/login',(req,res)=>{
     const {email,password}=req.body;
@@ -42,6 +45,31 @@ app.post('/doctorSignup',(req,res)=>{
     .catch(err=>res.json(err))
 })
 
+app.post('/test', async (req, res) => {
+    try {
+      const formData = req.body;
+      console.log('Received data:', formData); 
+      const history = new HistoryModel({
+        Email:formData.email,
+        Heredity: formData.heredity,  
+        PhysicalActivity: formData.physicalActivity,
+        FastFood: formData.junk,
+        Glucose: formData.glucose,
+        BloodPressure: formData.bp,
+        BMI: formData.bmi,
+        Age: formData.age,
+        Outcome: formData.predictions
+      });
+      await history.save();
+  
+      console.log('Data saved successfully');
+      res.status(200).send('Data saved successfully');
+    } catch (error) {
+      console.error('Error saving data:', error);
+      res.status(500).send('Error saving data');
+    }
+  });
+
 app.post('/doctorLogin',(req,res)=>{
     const {email,password}=req.body;
     DoctorModel.findOne({email: email})
@@ -63,9 +91,7 @@ app.post('/doctorLogin',(req,res)=>{
 app.post('/doctorEntry', async (req, res) => {
     try {
       const formData = req.body;
-      console.log('Received data:', formData); // Check if data is received correctly
-  
-      // Save data to the database
+      console.log('Received data:', formData); 
       const entry = new EntryModel({
         Heredity: formData.diabetesFamily,  
         PhysicalActivity: formData.physicalActivity,

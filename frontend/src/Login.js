@@ -11,11 +11,12 @@ function Login() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        navigate(`/test?email=${email}`);
         axios.post('http://localhost:3001/login', { email, password })
             .then(result => {
                 console.log(result);
                 if (result.data === "Success") {
-                    navigate('/', { state: { username: location.state.username } }); // Pass username as state
+                    navigate(`/test?email=${email}`);
                 } else {
                     // Handle login failure
                 }
