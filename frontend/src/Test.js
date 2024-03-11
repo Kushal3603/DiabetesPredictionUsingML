@@ -150,11 +150,6 @@ function Test() {
   const handleSeeResult = async() => {
     const searchParams = new URLSearchParams(location.search);
     const email = searchParams.get('email');
-    
-    
-
-    
-    
     setLoading(true);
     const predictions =  await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
     const data = { email, heredity, physicalActivity, junk, glucose, bp, bmi, age, predictions};
