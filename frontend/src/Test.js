@@ -4,6 +4,7 @@ import './Test.css'
 import { Questions } from "./Questions";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Footer from "./Footer";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {
   console.log(heredity, physicalActivity, junk, glucose, bp, bmi, age);
@@ -46,6 +47,7 @@ function Test() {
   const [isAnswered, setIsAnswered] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [predictions, setPredictions] = useState(null); 
+  const [loggedIn,setLoggedIn] = useState(false);
 
   useEffect(() => {
     if (heredity !== null && physicalActivity !== null && junk !== null && glucose !== null && bp !== null && bmi !== null && age !== null) {
@@ -144,12 +146,12 @@ function Test() {
 
   const navigate = useNavigate();
   const handleClick = () => {
+    setLoggedIn(true)
     navigate('/')
   }
 
   const handleSeeResult = async() => {
-    const searchParams = new URLSearchParams(location.search);
-    const email = searchParams.get('email');
+    const email = localStorage.getItem('userEmail')
     setLoading(true);
     const predictions =  await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
     const data = { email, heredity, physicalActivity, junk, glucose, bp, bmi, age, predictions};
@@ -168,10 +170,16 @@ function Test() {
         <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
-          <Link to="#">News</Link>
-          <Link to="#">Feedback</Link>
+          <Link to="/userHistory">User History</Link>
+          <Link to="/feedback">Feedback</Link>
           <Link to="#">About</Link>
           <button onClick={handleClick} className="loginbtn">Logout</button>
+          {/* {loggedIn?
+            <span><i class="fa-regular fa-user"></i></span>:
+            
+          } */}
+          {/* <span><i class="fa-regular fa-user" style={{marginLeft: "38px",
+  color: "#fff"}}></i></span> */}
         </nav>
       </header>
       <div className="container">
@@ -305,7 +313,9 @@ function Test() {
           </>
         )}
       </div>
+      
     </>
+    
   );
 }
 

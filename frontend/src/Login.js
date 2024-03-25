@@ -7,16 +7,18 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const location=useLocation();
+
+    
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        navigate(`/test?email=${email}`);
+        navigate("/");
         axios.post('http://localhost:3001/login', { email, password })
             .then(result => {
                 console.log(result);
                 if (result.data === "Success") {
-                    navigate(`/test?email=${email}`);
+                    localStorage.setItem("userEmail", email);
+                    navigate('/');
                 } else {
                     // Handle login failure
                 }
@@ -34,8 +36,8 @@ function Login() {
         <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
-          <Link to="#">News</Link>
-          <Link to="#">Feedback</Link>
+          <Link to="/userHistory">User History</Link>
+          <Link to="/feedback">Feedback</Link>
           <Link to="#">About</Link>
           <button className="loginbtn">Login</button>
         </nav>

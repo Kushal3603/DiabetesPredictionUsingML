@@ -63,3 +63,5 @@ select {
 input[type='number'] {
     width: calc(100% - 20px); /* Adjusting for input padding */
 }
+
+

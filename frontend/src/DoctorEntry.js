@@ -92,18 +92,18 @@ const navigate=useNavigate();
     <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/doctorDashboard">Home</Link>
-          <Link to="#">News</Link>
-          <Link to="#">Feedback</Link>
+          <Link to="/feedback">Feedback</Link>
           <Link to="#">About</Link>
           <button onClick={handleClick} className="loginbtn" >Logout</button>
         </nav>
         
       </header>
-    <div className='container1'>
+    <div className='container1' style={{color:'#fff',marginTop:'282px'}}>
       <div className='heading'>
         <h1>Entry of Valid Patient data</h1>
       </div>
       <form onSubmit={handleSubmit}>
+        <div className='left'>
         <div className='form1'>
           Patient's Age: <input type='number' name='age' required value={formData.age} onChange={handleChange} min={0} max={200} />
         </div>
@@ -126,6 +126,8 @@ const navigate=useNavigate();
             <option value='2'>More than once</option>
           </select>
         </div>
+        </div>
+        <div className='right'>
         <div>
           Glucose level (in mg/dL):
           <input type='number' name='glucoseLevel' required value={formData.glucoseLevel} onChange={handleChange} min={0} max={300} />
@@ -148,7 +150,7 @@ const navigate=useNavigate();
           <button type='submit' className='submit'>Submit Data</button>
    
           <button type='reset' className='reset'>Reset</button>
-        
+        </div>
       </form>
     </div>
     </>

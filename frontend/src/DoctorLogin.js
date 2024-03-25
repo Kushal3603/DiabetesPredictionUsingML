@@ -37,7 +37,7 @@ return (
         <nav className="navigation">
           <Link to="/doctorDashboard">Home</Link>
           <Link to="#">News</Link>
-          <Link to="#">Feedback</Link>
+          <Link to="/feedback">Feedback</Link>
           <Link to="#">About</Link>
           <button className="loginbtn" >Login</button>
         </nav>

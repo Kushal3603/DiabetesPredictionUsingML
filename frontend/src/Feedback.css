@@ -1,0 +1,42 @@
+.feedback-container {
+        position:absolute;
+        width:400px;
+        height: 440px;
+        margin-left: -198px;
+        background: transparent;
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 0 30px rgba(0,0,0,.5);
+        display:flex;
+        margin-top: 55px;
+        justify-content: center;
+        align-items: center;  
+        margin-top: -167px;
+        overflow: hidden;
+        transition: transform .5s ease,height .2s ease;
+        flex-direction: column;
+
+  }
+  
+  .feedback-title {
+    text-align: center;
+  }
+  
+  .feedback-label {
+    margin-bottom: 5px;
+  }
+  
+  .feedback-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+  }
+  
+  .feedback-submit-btn {
+    display: block;
+    margin-top: 10px;
+    width: 100%;
+  }
+  

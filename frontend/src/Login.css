@@ -69,7 +69,33 @@ header{
     transition: .5s;
 }
 
-
+.dataEntry{
+    text-decoration: none;
+    margin: 0;
+    margin-left: 180px;
+    width: 400px;
+    background: transparent;
+    background-color: cadetblue;
+    border-radius: 20px;
+    font-family: 'Poppins',sans-serif;
+    color: #fff;
+    border:2px solid rgba(255,255,255,.5);;
+    font-size: 2em;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    height: 100px;
+    position: absolute;
+    margin-top: 0px;
+    
+}
+.dataEntry:hover{
+    background: #fff;
+    color: cadetblue;
+    transition: .5s;
+}
 .logo{
     font-size: 2em;
     color: #fff;
@@ -399,3 +425,48 @@ header{
     text-decoration: underline;
 }
 
+/* Styles for the user history container */
+.user-history-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+  }
+  
+  /* Styles for the user history table */
+  .user-history-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .user-history-table th,
+  .user-history-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .user-history-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+  
+  .user-history-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .user-history-table tr:hover {
+    background-color: #f2f2f2;
+  }
+
+  .historyTitle{
+    background-color: darkslategray;
+    color: #fff;
+    font-weight: 1000;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -100px;
+  }

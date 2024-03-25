@@ -17,8 +17,8 @@ function Dashboard() {
       <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
-          <Link to="#">News</Link>
-          <Link to="#">Feedback</Link>
+          <Link to="/userHistory">User History</Link>
+          <Link to="/feedback">Feedback</Link>
           <Link to="#">About</Link>
           <button className="loginbtn" onClick={toggleDropdown}>Login</button>
         </nav>

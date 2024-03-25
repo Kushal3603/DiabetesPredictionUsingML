@@ -17,7 +17,7 @@ export const Questions=[
     option3:"More than once"
   },
   {
-    question:"What is your glucose level?"
+    question:"What is your fasting glucose level?"
   },
   {
     question:"What is your blood pressure level?",

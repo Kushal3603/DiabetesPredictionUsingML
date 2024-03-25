@@ -8,6 +8,8 @@ import Test from "./Test";
 import DoctorDashboard from "./DoctorDashboard";
 import DoctorEntry from "./DoctorEntry";
 import Result from "./Result";
+import UserHistory from "./UserHistory";
+import Feedback from "./Feedback";
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +23,8 @@ function App() {
         <Route path="/doctorDashboard" element={<DoctorDashboard/>}></Route>
         <Route path="/doctorEntry" element={<DoctorEntry/>}></Route>
         <Route path="/result" element={<Result/>}></Route>
+        <Route path="/userHistory" element={<UserHistory/>}></Route>
+        <Route path="/feedback" element={<Feedback/>}></Route>
       </Routes>
     </BrowserRouter>
   );
