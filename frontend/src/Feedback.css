@@ -1,5 +1,6 @@
 .feedback-container {
-        position:absolute;
+        position:fixed;
+        color: #fff;
         width:400px;
         height: 440px;
         margin-left: -198px;
@@ -8,13 +9,14 @@
         backdrop-filter: blur(20px);
         box-shadow: 0 0 30px rgba(0,0,0,.5);
         display:flex;
-        margin-top: 55px;
         justify-content: center;
         align-items: center;  
-        margin-top: -167px;
+        margin-left: -400px;
+        margin-top: -160px;
         overflow: hidden;
         transition: transform .5s ease,height .2s ease;
         flex-direction: column;
+        
 
   }
   
@@ -39,4 +41,24 @@
     margin-top: 10px;
     width: 100%;
   }
+
+  .feedback{
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    box-shadow: 0 0 30px rgba(0,0,0,.5);
+    margin-top: 5px;
+    backdrop-filter: blur(20px);
+  }
+  
+  .feedback-display-container{
+    position: fixed;
+    color: #fff;
+    margin-left: 80px;
+    margin-top: -180px;
+    max-height: 450px;
+    overflow-y: auto; 
+  }
+
+
   

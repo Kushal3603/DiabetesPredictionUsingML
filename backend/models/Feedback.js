@@ -1,6 +1,7 @@
 const mongoose=require('mongoose')
 
 const FeedbackSchema=new mongoose.Schema({
+    Name:String,
     Feedback:String
 })
 

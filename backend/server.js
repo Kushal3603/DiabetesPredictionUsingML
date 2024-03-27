@@ -5,7 +5,7 @@ const express=require('express');
 const cors=require('cors');
 const  mongoose  = require('mongoose');
 const HistoryModel = require('./models/History');
-const FeedbackModel = require('./models/Feedback');
+const FeedbackModel=require('./models/Feedback')
 const app=express();
 app.use(express.json())
 app.use(cors())
@@ -46,9 +46,18 @@ app.post('/doctorSignup',(req,res)=>{
 
 app.post('/test', async (req, res) => {
     try {
+      const currentDate = new Date();
+      const day = String(currentDate.getDate()).padStart(2, '0');
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const year = currentDate.getFullYear();
+
+    // Format the date in dd-mm-yyyy
+    const dateOnly = `${day}-${month}-${year}`;
+      
       const formData = req.body;
       console.log('Received data:', formData); 
       const history = new HistoryModel({
+        TestDate:dateOnly, 
         Email:formData.email,
         Heredity: formData.heredity,  
         PhysicalActivity: formData.physicalActivity,
@@ -116,6 +125,7 @@ app.post('/doctorEntry', async (req, res) => {
       const data = req.body;
       console.log('Received data:', data); 
       const feedback = new FeedbackModel({
+        Name:data.name,
         Feedback:data.feedback
       });
       await feedback.save();
@@ -151,6 +161,25 @@ app.post('/doctorEntry', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+
+
+  const FeedbackDisplay = new mongoose.Schema({
+    Name: String,
+    Feedback: String
+  });
+  
+  
+  
+  app.get('/feedback', async (req, res) => {
+    try {
+      const feedback = await FeedbackModel.find();
+      res.json(feedback);
+    } catch (error) {
+      console.error('Error fetching feedback:', error);
+      res.status(500).json({ error: 'Error fetching feedback' });
+    }
+  });
+  
   
   
 

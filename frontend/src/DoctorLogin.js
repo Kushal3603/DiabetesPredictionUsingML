@@ -36,7 +36,6 @@ return (
         <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/doctorDashboard">Home</Link>
-          <Link to="#">News</Link>
           <Link to="/feedback">Feedback</Link>
           <Link to="#">About</Link>
           <button className="loginbtn" >Login</button>
@@ -47,28 +46,28 @@ return (
       <div className="login">
           <span className="icon-close"><i className="fa-solid fa-xmark"></i></span>
           <div className="form-box login">
-              <h2>Doctor Login</h2>
+              <h2 style={{color:'#fff'}}>Doctor Login</h2>
               <form action="#" onSubmit={handleSubmit} method="post">
                   <div className="input-box">
                       <span className="icon">
-                          <i className="fa-solid fa-envelope"></i>
+                          <i style={{color:'#fff'}} className="fa-solid fa-envelope"></i>
                       </span>
                       <input onChange={(e)=>setEmail(e.target.value)} value={email} type="email" className="email" required/>
-                      <label>Email</label>
+                      <label style={{color:'#fff'}}>Email</label>
                   </div>
                   <div className="input-box">
                       <span className="icon">
-                          <i className="fa fa-lock" aria-hidden="true"></i>
+                          <i style={{color:'#fff'}} className="fa fa-lock" aria-hidden="true"></i>
                       </span>
                       <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" className="password" required/>
-                      <label>Password</label>
+                      <label style={{color:'#fff'}}>Password</label>
                   </div>
                   <div className="remember-forget">
-                      <a href="#">Forgot password?</a>
+                      <a href="#" style={{color:'#fff'}}>Forgot password?</a>
               </div>
                   <button type="submit" className="login-btn">Login</button>
                   <div className="login-register">
-                      <p>Don't have an account? <Link to='/doctorSignup' id="reg" className="register-link">Register</Link></p>
+                      <p style={{color:'#fff'}}>Don't have an account? <Link to='/doctorSignup' id="reg" className="register-link" style={{color:'#fff'}}>Register</Link></p>
                   </div>
               </form>
           </div>

@@ -1,36 +1,38 @@
-import React from 'react'
-import './Login.css'
-import { Link,useNavigate } from 'react-router-dom'
-function DoctorDashboard() {
+// import React from 'react'
+// import './Login.css'
+// import { Link,useNavigate } from 'react-router-dom'
+// import Footer from './Footer'
+// function DoctorDashboard() {
 
-  const navigate=useNavigate()
-  const handleClick=()=>{
-    navigate('/')
-  }
-  return (
-    <>
-    <header>
-    <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
-        <nav className="navigation">
-          <Link to="/">Home</Link>
-          <Link to="/feedback">Feedback</Link>
-          <Link to="#">About</Link>
-          <button onClick={handleClick} className="loginbtn">Logout</button>
+//   const navigate=useNavigate()
+//   const handleClick=()=>{
+//     navigate('/')
+//   }
+//   return (
+//     <>
+//     <header>
+//     <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
+//         <nav className="navigation">
+//           <Link to="/">Home</Link>
+//           <Link to="/feedback">Feedback</Link>
+//           <Link to="#">About</Link>
+//           <button onClick={handleClick} className="loginbtn">Logout</button>
           
           
-        </nav>
+//         </nav>
         
-      </header>
-      <div style={{fontSize:'50px',fontWeight:'1000', marginBottom:'33px',color:'silver'}}>Let's Contribute for a Change !</div>
-      <div>
+//       </header>
+//       <div style={{fontSize:'50px',fontWeight:'1000', marginBottom:'33px',color:'silver'}}>Let's Contribute for a Change !</div>
+//       <div>
         
-          <Link to="/doctorEntry" className='dataEntry'>Enter Diabetes Data</Link>
-      </div>
-    </>
-  )
-}
+//           <Link to="/doctorEntry" className='dataEntry'>Enter Diabetes Data</Link>
+//       </div>
+      
+//     </>
+//   )
+// }
 
-export default DoctorDashboard
+// export default DoctorDashboard
 
 // import React, { useEffect, useState } from 'react';
 // import './Login.css';
@@ -117,3 +119,39 @@ export default DoctorDashboard
 // }
 
 // export default DoctorDashboard;
+
+import React from 'react'
+import './Login.css'
+import { Link, useNavigate } from 'react-router-dom'
+import Footer from './Footer'
+
+function DoctorDashboard() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/');
+  }
+
+  return (
+    <>
+      <header>
+        <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
+        <nav className="navigation">
+          <Link to="/">Home</Link>
+          <Link to="/feedback">Feedback</Link>
+          <Link to="#">About</Link>
+          <button onClick={handleClick} className="loginbtn">Logout</button>
+        </nav>
+      </header>
+      <div className="content" style={{ paddingTop: '100px', paddingBottom: '200px' }}>
+        <div style={{ fontSize: '50px', fontWeight: '1000', marginBottom: '33px', color: 'silver' }}>Let's Contribute for a Change !</div>
+        <div>
+          <Link to="/doctorEntry" className='dataEntry'>Enter Diabetes Data</Link>
+        </div>
+      </div>
+      <Footer />
+    </>
+  )
+}
+
+export default DoctorDashboard

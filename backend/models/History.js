@@ -1,6 +1,7 @@
 const mongoose=require('mongoose')
 
 const HistorySchema=new mongoose.Schema({
+  TestDate:String,
   Email:String,
   Heredity: Number,  
   PhysicalActivity: Number,

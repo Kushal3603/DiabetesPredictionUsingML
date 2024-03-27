@@ -79,4 +79,10 @@ const UserHistory = () => {
               </tr>
             ))}
           </tbody>
-  
+        </table>
+      </div>
+    </>
+  );
+}
+
+export default UserHistory;
