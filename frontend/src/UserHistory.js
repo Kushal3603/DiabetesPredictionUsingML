@@ -35,6 +35,15 @@ const UserHistory = () => {
     localStorage.removeItem('userEmail');
   };
 
+  // Conditional rendering of the table
+  if (!email) {
+    return (
+      <div>
+        <p>Please log in to view user history.</p>
+      </div>
+    );
+  }
+
   return (
     <>
       <header>
@@ -49,7 +58,6 @@ const UserHistory = () => {
       </header>
       <div className='historyTitle'>User History</div>
       <div className="user-history-container">
-      
         <table className="user-history-table">
           <thead>
             <tr>
