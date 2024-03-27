@@ -427,7 +427,8 @@ header{
 
 /* Styles for the user history container */
 .user-history-container {
-    
+    position: fixed;
+    margin-left: -625px;
     margin-top: 20px;
     padding: 20px;
     background-color: #fff;
@@ -446,12 +447,16 @@ header{
   .user-history-table td {
     padding: 10px;
     border: 1px solid #ddd;
+    /* display: flex;
+    justify-content: center; */
   }
   
   .user-history-table th {
     background-color: #f2f2f2;
     font-weight: bold;
   }
+
+  
   
   .user-history-table tr:nth-child(even) {
     background-color: #f9f9f9;
@@ -464,12 +469,16 @@ header{
   .historyTitle{
     background-color: darkslategray;
     color: #fff;
+    margin-top: -240px;
     font-weight: 1000;
     font-size: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -100px;
   }
 
+   .column{
+    display: flex;
+    justify-content: center;
+   }
 

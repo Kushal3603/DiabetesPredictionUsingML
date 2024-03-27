@@ -35,11 +35,12 @@ const UserHistory = () => {
     localStorage.removeItem('userEmail');
   };
 
-  // Conditional rendering of the table
+  
   if (!email) {
     return (
-      <div>
+      <div style={{color:'#fff', textDecoration:'none'}}>
         <p>Please log in to view user history.</p>
+        <p><Link style={{marginLeft:'100px'}} to="/login">Login</Link></p>
       </div>
     );
   }
