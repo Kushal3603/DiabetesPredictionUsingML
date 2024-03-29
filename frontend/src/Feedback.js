@@ -3,6 +3,7 @@ import "./Feedback.css";
 import axios from "axios";
 import logo from './logo.png'
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 function Feedback() {
   const [feedback, setFeedback] = useState("");
@@ -112,6 +113,7 @@ function Feedback() {
         
       </div>
       </div>
+      {/* <Footer/> */}
     </>
   );
 }

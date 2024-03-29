@@ -4,6 +4,7 @@ import './DropdownList.css';
 import { Link } from 'react-router-dom';
 import HeroPage from './HeroPage';
 import logo from './logo.png'
+import Footer from './Footer';
 
 function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,8 +53,13 @@ function Dashboard() {
         {/* <center className='welcome'><h1>Welcome, {username}!</h1></center> */}
         {/* <center><Link to="/test" type="submit" >Take the Test</Link></center> */}
       </div>
+      <Footer/>
     </div>
+    
   );
+  
 }
 
 export default Dashboard;
+
+

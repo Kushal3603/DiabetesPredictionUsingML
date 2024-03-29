@@ -144,7 +144,7 @@ function DoctorDashboard() {
           <button onClick={handleClick} className="loginbtn">Logout</button>
         </nav>
       </header>
-      <div className="content" style={{ paddingTop: '100px', paddingBottom: '200px' }}>
+      <div className="content" style={{  paddingTop: '100px', paddingBottom: '200px' }}>
         <div style={{ fontSize: '50px', fontWeight: '1000', marginBottom: '33px', color: 'silver' }}>Let's Contribute for a Change !</div>
         <div>
           <Link to="/doctorEntry" className='dataEntry'>Enter Diabetes Data</Link>
