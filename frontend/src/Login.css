@@ -97,6 +97,7 @@ header{
     transition: .5s;
 }
 .logo{
+    /* margin-top: -50px; */
     font-size: 2em;
     color: #fff;
     user-select: none;

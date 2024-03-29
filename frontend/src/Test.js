@@ -4,6 +4,7 @@ import './Test.css'
 import { Questions } from "./Questions";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import logo from './logo.png'
 import Footer from "./Footer";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {
@@ -147,6 +148,7 @@ function Test() {
   const navigate = useNavigate();
   const handleClick = () => {
     setLoggedIn(true)
+    localStorage.removeItem('userEmail');
     navigate('/')
   }
 
@@ -160,14 +162,14 @@ function Test() {
     .then("Data submitted successfully")
     .catch(e=>console.log(e))
     setPredictions(predictions); 
-    navigate('/result', { state: { predictions,bmi,junk,loading } });
+    navigate('/result', { state: { predictions,bmi,junk,loading,heredity,physicalActivity,glucose,age,bp } });
   }
   
   return (
     <>
       <header>
 
-        <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
+        <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
           <Link to="/userHistory">User History</Link>

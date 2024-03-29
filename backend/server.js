@@ -5,7 +5,8 @@ const express=require('express');
 const cors=require('cors');
 const  mongoose  = require('mongoose');
 const HistoryModel = require('./models/History');
-const FeedbackModel=require('./models/Feedback')
+const FeedbackModel=require('./models/Feedback');
+const DoctorFeedbackModel = require('./models/DoctorFeedback');
 const app=express();
 app.use(express.json())
 app.use(cors())
@@ -161,14 +162,6 @@ app.post('/doctorEntry', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
-
-
-  const FeedbackDisplay = new mongoose.Schema({
-    Name: String,
-    Feedback: String
-  });
-  
-  
   
   app.get('/feedback', async (req, res) => {
     try {
@@ -179,7 +172,34 @@ app.post('/doctorEntry', async (req, res) => {
       res.status(500).json({ error: 'Error fetching feedback' });
     }
   });
+
+  app.post('/doctorFeedback', async (req, res) => {
+    try {
+      const data = req.body;
+      console.log('Received data:', data); 
+      const feedback = new DoctorFeedbackModel({
+        Name:data.name,
+        Feedback:data.feedback
+      });
+      await feedback.save();
   
+      console.log('Data saved successfully');
+      res.status(200).send('Data saved successfully');
+    } catch (error) {
+      console.error('Error saving data:', error);
+      res.status(500).send('Error saving data');
+    }
+  });
+  
+  app.get('/doctorFeedback', async (req, res) => {
+    try {
+      const feedback = await DoctorFeedbackModel.find();
+      res.json(feedback);
+    } catch (error) {
+      console.error('Error fetching feedback:', error);
+      res.status(500).json({ error: 'Error fetching feedback' });
+    }
+  });
   
   
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import './Login.css';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from './logo.png'
 
 const UserHistory = () => {
   const [data, setData] = useState([]);
@@ -48,7 +49,7 @@ const UserHistory = () => {
   return (
     <>
       <header>
-        <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
+        <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
           <Link to="/userHistory">User History</Link>

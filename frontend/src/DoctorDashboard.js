@@ -122,6 +122,7 @@
 
 import React from 'react'
 import './Login.css'
+import logo from './logo.png'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from './Footer'
 
@@ -135,10 +136,10 @@ function DoctorDashboard() {
   return (
     <>
       <header>
-        <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
+        <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
         <nav className="navigation">
-          <Link to="/">Home</Link>
-          <Link to="/feedback">Feedback</Link>
+          <Link to="/doctorDashboard">Home</Link>
+          <Link to="/doctorFeedback">Feedback</Link>
           <Link to="#">About</Link>
           <button onClick={handleClick} className="loginbtn">Logout</button>
         </nav>
@@ -149,7 +150,7 @@ function DoctorDashboard() {
           <Link to="/doctorEntry" className='dataEntry'>Enter Diabetes Data</Link>
         </div>
       </div>
-      <Footer />
+      {/* <Footer />   */}
     </>
   )
 }

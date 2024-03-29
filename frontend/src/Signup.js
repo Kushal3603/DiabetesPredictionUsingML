@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css'
 import validation from './LoginValidation';
+import logo from './logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
@@ -23,7 +24,7 @@ function Signup() {
     return (
         <>
             <header>
-            <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
+            <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
                 <nav className="navigation">
                     <Link to="/">Home</Link>
                     <Link to="/userHistory">User History</Link>
@@ -40,14 +41,14 @@ function Signup() {
                             <span className="icon">
                                 <i  style={{color:'#fff'}}  className="fa-solid fa-user"></i>
                             </span>
-                            <input value={username} name='username' onChange={(e) => setUsername(e.target.value)} type="text" required />
+                            <input style={{color:'#fff'}} value={username} name='username' onChange={(e) => setUsername(e.target.value)} type="text" required />
                             <label style={{color:'#fff'}}>Username</label>
                         </div>
                         <div className="input-box">
                             <span className="icon">
                                 <i  style={{color:'#fff'}} className="fa-solid fa-envelope"></i>
                             </span>
-                            <input value={email} type="email" onChange={(e) => setEmail(e.target.value)} required name="email" />
+                            <input style={{color:'#fff'}} value={email} type="email" onChange={(e) => setEmail(e.target.value)} required name="email" />
                             <label style={{color:'#fff'}}>Email</label>
                         </div>
 
@@ -55,7 +56,7 @@ function Signup() {
                             <span className="icon">
                                 <i  style={{color:'#fff'}}className="fa fa-lock" aria-hidden="true"></i>
                             </span>
-                            <input value={password} type="password" onChange={(e) => setPassword(e.target.value)} required name="password" />
+                            <input style={{color:'#fff'}} value={password} type="password" onChange={(e) => setPassword(e.target.value)} required name="password" />
                             <label style={{color:'#fff'}}>Password</label>
                         </div>
 

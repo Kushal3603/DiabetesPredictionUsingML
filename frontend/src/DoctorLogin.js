@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './Login.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
+import logo from './logo.png'
 function DoctorLogin() {
   
     const [email,setEmail]=useState()
@@ -33,7 +34,7 @@ return (
     
         <>
         <header>
-        <Link to="/" className="logo"><h2>GlucoWise</h2></Link>
+        <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/doctorDashboard">Home</Link>
           <Link to="/feedback">Feedback</Link>
@@ -52,14 +53,14 @@ return (
                       <span className="icon">
                           <i style={{color:'#fff'}} className="fa-solid fa-envelope"></i>
                       </span>
-                      <input onChange={(e)=>setEmail(e.target.value)} value={email} type="email" className="email" required/>
+                      <input style={{color:'#fff'}} onChange={(e)=>setEmail(e.target.value)} value={email} type="email" className="email" required/>
                       <label style={{color:'#fff'}}>Email</label>
                   </div>
                   <div className="input-box">
                       <span className="icon">
                           <i style={{color:'#fff'}} className="fa fa-lock" aria-hidden="true"></i>
                       </span>
-                      <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" className="password" required/>
+                      <input style={{color:'#fff'}} value={password} onChange={(e)=>setPassword(e.target.value)} type="password" className="password" required/>
                       <label style={{color:'#fff'}}>Password</label>
                   </div>
                   <div className="remember-forget">
