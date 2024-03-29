@@ -125,6 +125,7 @@ import './Login.css'
 import logo from './logo.png'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from './Footer'
+import DoctorHeroPage from './DoctorHeroPage'
 
 function DoctorDashboard() {
   const navigate = useNavigate();
@@ -144,13 +145,14 @@ function DoctorDashboard() {
           <button onClick={handleClick} className="loginbtn">Logout</button>
         </nav>
       </header>
-      <div className="content" style={{  paddingTop: '100px', paddingBottom: '200px' }}>
+      <DoctorHeroPage/>
+      {/* <div className="content" style={{  paddingTop: '100px', paddingBottom: '200px' }}>
         <div style={{ fontSize: '50px', fontWeight: '1000', marginBottom: '33px', color: 'silver' }}>Let's Contribute for a Change !</div>
         <div>
           <Link to="/doctorEntry" className='dataEntry'>Enter Diabetes Data</Link>
         </div>
-      </div>
-      {/* <Footer />   */}
+      </div> */}
+      <Footer />  
     </>
   )
 }

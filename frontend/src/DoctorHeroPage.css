@@ -1,0 +1,62 @@
+/* DoctorHeroPage.css */
+
+.doctor-hero {
+    background-color: #f8f8f8;
+    padding: 50px 0;
+    text-align: center;
+    width: 1535px;
+    margin-top: 350px;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .icon {
+    font-size: 64px;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .feature-list {
+    text-align: left;
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .feature-list li {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .feature-icon {
+    margin-right: 10px;
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #0056b3;
+  }
+  
