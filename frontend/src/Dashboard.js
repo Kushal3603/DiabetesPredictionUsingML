@@ -53,7 +53,9 @@ function Dashboard() {
         {/* <center className='welcome'><h1>Welcome, {username}!</h1></center> */}
         {/* <center><Link to="/test" type="submit" >Take the Test</Link></center> */}
       </div>
+      <div style={{marginTop:'-100px'}}>
       <Footer/>
+      </div>
     </div>
     
   );
