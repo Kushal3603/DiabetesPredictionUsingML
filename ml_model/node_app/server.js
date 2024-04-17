@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 
+app.get("/", async (req, res) => {
+  res.send("Success!!!!!!");
+});
+
 // Endpoint to make predictions
 app.post('/predict', (req, res) => {
   const inputData = req.body; // Assuming input data is sent in the request body
