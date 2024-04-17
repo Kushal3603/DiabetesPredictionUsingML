@@ -6,5 +6,5 @@ const DoctorSchema=new mongoose.Schema({
     password:String
 })
 
-const DoctorModel=mongoose.model("doctor",DoctorSchema)
+const DoctorModel=mongoose.model("doctors",DoctorSchema)
 module.exports=DoctorModel
