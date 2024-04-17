@@ -33,7 +33,7 @@ function DoctorEntry() {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Data submitted successfully.")
-    axios.post(`http://localhost:3001/doctorEntry`, formData)
+    axios.post(`https://diabetespredictionusingml.onrender.com/doctorEntry`, formData)
       .then(result => {
         console.log(result);
         setFormData({

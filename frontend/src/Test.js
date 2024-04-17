@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {
   console.log(heredity, physicalActivity, junk, glucose, bp, bmi, age);
-  return fetch('http://127.0.0.1:5000/predict', {
+  return fetch('https://diabetespredictionusingml.onrender.com/predict', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -158,7 +158,7 @@ function Test() {
     const predictions =  await predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age);
     const data = { email, heredity, physicalActivity, junk, glucose, bp, bmi, age, predictions};
     console.log(data);
-    axios.post(`http://localhost:3001/test`, data)
+    axios.post(`https://diabetespredictionusingml.onrender.com/test`, data)
     .then("Data submitted successfully")
     .catch(e=>console.log(e))
     setPredictions(predictions); 

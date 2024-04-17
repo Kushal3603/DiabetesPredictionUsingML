@@ -24,7 +24,7 @@ const UserHistory = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/userHistory?Email=${email}`);
+      const response = await axios.get(`https://diabetespredictionusingml.onrender.com/userHistory?Email=${email}`);
       setData(response.data);
     } catch (error) {
       console.error("Error", error);

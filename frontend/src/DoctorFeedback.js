@@ -18,7 +18,7 @@ function Feedback() {
   }, []);
 
   const fetchFeedbacks = () => {
-    axios.get('http://localhost:3001/doctorFeedback')
+    axios.get('https://diabetespredictionusingml.onrender.com/doctorFeedback')
       .then(response => {
         setFeedbacks(response.data);
       })
@@ -30,7 +30,7 @@ function Feedback() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Feedback submitted:", feedback);
-    axios.post('http://localhost:3001/doctorFeedback',{feedback:feedback,name:feedbackName})
+    axios.post('https://diabetespredictionusingml.onrender.com/doctorFeedback',{feedback:feedback,name:feedbackName})
       .then(() => {
         console.log("Data submitted");
         // Fetch updated feedbacks after successful submission

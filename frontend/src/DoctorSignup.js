@@ -14,7 +14,7 @@ function DoctorSignup() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('http://localhost:3001/doctorSignup',{username,email,password})
+        axios.post('https://diabetespredictionusingml.onrender.com/doctorSignup',{username,email,password})
         .then(result=>console.log(result))
         .catch(err=>console.log(err))
         navigate('/doctorLogin') 

@@ -13,7 +13,7 @@ function Signup() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`http://localhost:3001/signup`, { username, email, password })
+        axios.post(`https://diabetespredictionusingml.onrender.com/signup`, { username, email, password })
             .then(result => {
                 console.log(result);
                 navigate('/login', { state: { username } }); 

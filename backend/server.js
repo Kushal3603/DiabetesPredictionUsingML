@@ -11,7 +11,7 @@ const app=express();
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect("mongodb://127.0.0.1:27017/Project")
+mongoose.connect("mongodb+srv://kushal3603:Kushal1973@project-db.gr6mcor.mongodb.net/")
 .then(()=>console.log("MongoDB connected"))
 .catch(()=>console.log("Not connected"))
 
