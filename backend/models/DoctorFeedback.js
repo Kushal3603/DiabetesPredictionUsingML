@@ -5,5 +5,5 @@ const DoctorFeedbackSchema=new mongoose.Schema({
     Feedback:String
 })
 
-const DoctorFeedbackModel=mongoose.model("doctorFeedbacks",DoctorFeedbackSchema)
+const DoctorFeedbackModel=mongoose.model("doctorfeedbacks",DoctorFeedbackSchema)
 module.exports=DoctorFeedbackModel
