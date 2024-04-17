@@ -15,6 +15,10 @@ mongoose.connect("mongodb+srv://kushal3603:Kushal1973@project-db.gr6mcor.mongodb
 .then(()=>console.log("MongoDB connected"))
 .catch(()=>console.log("Not connected"))
 
+app.get("/", async (req, res) => {
+  res.send("Success!!!!!!");
+});
+
 app.post('/signup',(req,res)=>{
     UserModel.create(req.body)
     .then(users=>res.json(users))
