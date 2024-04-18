@@ -189,5 +189,10 @@ def predict():
         # Return a meaningful error response
         return jsonify({"error": "An error occurred while processing the request"}), 500
 
+@app.route('/')
+def index():
+    return "Welcome to the Diabetes Prediction API!"
+
+
 if __name__ == '__main__':
     app.run(debug=True)
