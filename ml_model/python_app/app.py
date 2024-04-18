@@ -141,8 +141,12 @@ CORS(app)
 
 mongo_uri = "mongodb+srv://kushal3603:Kushal1973@project-db.gr6mcor.mongodb.net/"
 client = MongoClient(mongo_uri)
-db = client['Project']
-collection = db['entries']
+try:
+    db = client['Project']
+    collection = db['entries']
+    print("Connected to MongoDB successfully!")
+except Exception as e:
+    print("Error connecting to MongoDB:", e)
 
 def myfnc(input_data):
     cursor = collection.find({})
