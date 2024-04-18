@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {
   console.log(heredity, physicalActivity, junk, glucose, bp, bmi, age);
-  return fetch('https://diabetespredictionusingml-2.onrender.com/predict', {
+  return fetch('https://diabetespredictionusingml-1.onrender.com/predict', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
