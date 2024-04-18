@@ -131,17 +131,10 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import MinMaxScaler
-# from flask import Flask, request, jsonify
-# from flask_cors import CORS
-# from pymongo import MongoClient
-from flask_cors import CORS
 from flask import Flask, jsonify, request
 from pymongo import MongoClient
-
-
-
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
@@ -157,8 +150,6 @@ def myfnc(input_data):
 
     data = data.dropna(subset=["Outcome"])
     data = data.drop(columns=["_id","__v"])
-    
-    
 
     # Ensure numeric columns are converted to appropriate data types
     data = data.astype(float)
@@ -183,16 +174,20 @@ def myfnc(input_data):
     new_data_scaled = scaler.transform(new_data)
     prediction = model.predict(new_data_scaled)
     scaled_prediction = "{:.1f}".format(prediction[0] * 100)
-   
 
     return scaled_prediction
 
-
 @app.route('/predict', methods=['POST'])
 def predict():
-    input_data = request.json
-    predictions = myfnc(input_data)
-    return jsonify(predictions)
+    try:
+        input_data = request.json
+        predictions = myfnc(input_data)
+        return jsonify(predictions)
+    except Exception as e:
+        # Log the error for debugging purposes
+        print(f"An error occurred: {e}")
+        # Return a meaningful error response
+        return jsonify({"error": "An error occurred while processing the request"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
