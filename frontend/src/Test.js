@@ -162,9 +162,9 @@ function Test() {
     axios.post(`https://diabetespredictionusingml.onrender.com/test`, data)
     .then("Data submitted successfully")
     .catch(e=>console.log(e))
-    setPredictions(predictions); 
-    setLoading(false)  //<----------------------------------------------------------------------------------------->
+    setPredictions(predictions);  
     navigate('/result', { state: { predictions,bmi,junk,loading,heredity,physicalActivity,glucose,age,bp } });
+    setLoading(false)
   }
   
   return (
