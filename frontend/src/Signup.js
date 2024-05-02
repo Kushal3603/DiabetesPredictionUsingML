@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css'
-import validation from './LoginValidation';
 import logo from './logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 
