@@ -58,7 +58,7 @@ function Feedback() {
         <nav className="navigation">
           <Link to="/doctorDashboard">Home</Link>
           <Link to="/doctorFeedback">Feedback</Link>
-          <Link to="#">About</Link>
+          <Link to="/doctorAbout">About</Link>
           <button className="loginbtn" onClick={handleClick}>Logout</button>
         </nav>
       </header>
@@ -69,7 +69,7 @@ function Feedback() {
         <div className="form-group">
         <label htmlFor="feedbackName" className="feedback-label">Your Name</label>
         <textarea
-        style={{marginBottom:'5px'}}
+        style={{marginBottom:'5px',width:'307px'}}
             className="form-control feedback-textarea"
             id="feedbackName"
             rows="1"
@@ -79,6 +79,7 @@ function Feedback() {
           ></textarea>
           <label htmlFor="feedbackTextarea" className="feedback-label">Your Feedback</label>
           <textarea
+          style={{width:'307px'}}
             className="form-control feedback-textarea"
             id="feedbackTextarea"
             rows="5"
@@ -87,7 +88,7 @@ function Feedback() {
             required
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-primary feedback-submit-btn">
+        <button style={{width:'307px'}} type="submit" className="btn btn-primary feedback-submit-btn">
           Submit Feedback
         </button>
       </form>

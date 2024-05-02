@@ -27,8 +27,8 @@ function Signup() {
                 <nav className="navigation">
                     <Link to="/">Home</Link>
                     <Link to="/userHistory">User History</Link>
-                    <Link to="#">Feedback</Link>
-                    <Link to="#">About</Link>
+                    <Link to="/feedback">Feedback</Link>
+                    <Link to="/about">About</Link>
                     <button className="loginbtn">Login</button>
                 </nav>
             </header>

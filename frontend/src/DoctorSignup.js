@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './Login.css'
-import validation from './LoginValidation';
 import logo from './logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -28,8 +27,8 @@ function DoctorSignup() {
         <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
         <nav className="navigation">
           <Link to="/">Home</Link>
-          <Link to="/feedback">Feedback</Link>
-          <Link to="#">About</Link>
+          <Link to="/doctorFeedback">Feedback</Link>
+          <Link to="/doctorAbout">About</Link>
           <button className="loginbtn" >Login</button>
           
           

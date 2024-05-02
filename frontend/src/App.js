@@ -11,6 +11,8 @@ import Result from "./Result";
 import UserHistory from "./UserHistory";
 import Feedback from "./Feedback";
 import DoctorFeedback from "./DoctorFeedback";
+import About from "./About";
+import DoctorAbout from "./DoctorAbout";
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +29,8 @@ function App() {
         <Route path="/userHistory" element={<UserHistory/>}></Route>
         <Route path="/feedback" element={<Feedback/>}></Route>
         <Route path="/doctorFeedback" element={<DoctorFeedback/>}></Route>
+        <Route path="/about" element={<About/>}></Route>
+        <Route path="/doctorAbout" element={<DoctorAbout/>}></Route>
       </Routes>
     </BrowserRouter>
   );

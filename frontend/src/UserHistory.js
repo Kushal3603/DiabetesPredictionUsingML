@@ -54,7 +54,7 @@ const UserHistory = () => {
           <Link to="/">Home</Link>
           <Link to="/userHistory">User History</Link>
           <Link to="/feedback">Feedback</Link>
-          <Link to="#">About</Link>
+          <Link to="/about">About</Link>
           <button onClick={handleClick} className="loginbtn">Logout</button>
         </nav>
       </header>

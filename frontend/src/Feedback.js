@@ -65,7 +65,7 @@ function Feedback() {
           <Link to="/">Home</Link>
           <Link to="/userHistory">User History</Link>
           <Link to="/feedback">Feedback</Link>
-          <Link to="#">About</Link>
+          <Link to="/about">About</Link>
           <button className="loginbtn" onClick={handleClick}>{isLoggedIn ? 'Logout' : 'Login'}</button>
         </nav>
       </header>

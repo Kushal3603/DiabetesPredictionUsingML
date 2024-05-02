@@ -63,7 +63,7 @@ function DoctorEntry() {
       <nav className="navigation">
         <Link to="/doctorDashboard">Home</Link>
         <Link to="/doctorFeedback">Feedback</Link>
-        <Link to="#">About</Link>
+        <Link to="/doctorAbout">About</Link>
         <button onClick={handleClick} className="loginbtn" >Logout</button>
       </nav>
     </header>

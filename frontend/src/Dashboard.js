@@ -33,7 +33,7 @@ function Dashboard() {
           <Link to="/">Home</Link>
           <Link to="/userHistory">User History</Link>
           <Link to="/feedback">Feedback</Link>
-          <Link to="#">About</Link>
+          <Link to="/about">About</Link>
           {isLoggedIn ? (
             <button className="loginbtn" onClick={handleLogout}>Logout</button>
           ) : (

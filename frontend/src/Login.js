@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
-import validation from './LoginValidation'
 import './Login.css'
 import logo from './logo.png'
 function Login() {
@@ -39,7 +38,7 @@ function Login() {
           <Link to="/">Home</Link>
           <Link to="/userHistory">User History</Link>
           <Link to="/feedback">Feedback</Link>
-          <Link to="#">About</Link>
+          <Link to="/about">About</Link>
           <button className="loginbtn">Login</button>
         </nav>
         
