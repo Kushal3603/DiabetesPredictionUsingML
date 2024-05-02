@@ -45,7 +45,7 @@ return (
       </header>
           <div classname="wrapper">
       <div className="login">
-          <span className="icon-close"><i className="fa-solid fa-xmark"></i></span>
+          <span className="icon-close" style={{marginLeft:'311px'}}><i className="fa-solid fa-xmark"></i></span>
           <div className="form-box login">
               <h2 style={{color:'#fff'}}>Doctor Login</h2>
               <form action="#" onSubmit={handleSubmit} method="post">
