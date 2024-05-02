@@ -1,16 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './Loader.css'; // Import the CSS file for styling
 
-const Loader = () => {
+function Loader() {
   return (
-    <div className="wrapper">
-    <div className="circle"></div>
-    <div className="circle"></div>
-    <div className="circle"></div>
-    <div className="shadow"></div>
-    <div className="shadow"></div>
-    <div className="shadow"></div>
+    <div className="loader-container">
+      <div className="loader"></div>
     </div>
-  )
+  );
 }
 
-export default Loader
+export default Loader;

@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from './logo.png'
 import Footer from "./Footer";
+import Loader from "./Loader";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {
   console.log(heredity, physicalActivity, junk, glucose, bp, bmi, age);
@@ -162,6 +163,7 @@ function Test() {
     .then("Data submitted successfully")
     .catch(e=>console.log(e))
     setPredictions(predictions); 
+    setLoading(false)  //<----------------------------------------------------------------------------------------->
     navigate('/result', { state: { predictions,bmi,junk,loading,heredity,physicalActivity,glucose,age,bp } });
   }
   
@@ -176,12 +178,7 @@ function Test() {
           <Link to="/feedback">Feedback</Link>
           <Link to="/about">About</Link>
           <button onClick={handleClick} className="loginbtn">Logout</button>
-          {/* {loggedIn?
-            <span><i class="fa-regular fa-user"></i></span>:
-            
-          } */}
-          {/* <span><i class="fa-regular fa-user" style={{marginLeft: "38px",
-  color: "#fff"}}></i></span> */}
+          
         </nav>
       </header>
       <div className="container">
@@ -191,7 +188,9 @@ function Test() {
           <>
             <h2>Test is submitted successfully</h2>
             <button className="reset" onClick={reset}>Reset</button>
-            <button className="result" onClick={handleSeeResult} >See Result</button>
+            {loading && <Loader/>} 
+            <button className="result" onClick={handleSeeResult}>See Result</button>
+            
           </>
         ) : (
           <>
