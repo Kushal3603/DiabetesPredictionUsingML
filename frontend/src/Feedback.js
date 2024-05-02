@@ -86,6 +86,7 @@ function Feedback() {
           ></textarea>
           <label htmlFor="feedbackTextarea" className="feedback-label">Your Feedback</label>
           <textarea
+          style={{width:'307px'}}
             className="form-control feedback-textarea"
             id="feedbackTextarea"
             rows="5"
@@ -94,7 +95,7 @@ function Feedback() {
             required
           ></textarea>
         </div>
-        <button type="submit" className="btn btn-primary feedback-submit-btn">
+        <button style={{width:'307px'}} type="submit" className="btn btn-primary feedback-submit-btn">
           Submit Feedback
         </button>
       </form>
