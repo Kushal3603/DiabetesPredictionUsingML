@@ -76,7 +76,7 @@ function Feedback() {
         <div className="form-group">
         <label htmlFor="feedbackName" className="feedback-label">Your Name</label>
         <textarea
-        style={{marginBottom:'5px'}}
+        style={{marginBottom:'5px',width:'307px'}}
             className="form-control feedback-textarea"
             id="feedbackName"
             rows="1"
