@@ -163,7 +163,7 @@ function Test() {
     .then("Data submitted successfully")
     .catch(e=>console.log(e))
     setPredictions(predictions);  
-    navigate('/result', { state: { predictions,bmi,junk,loading,heredity,physicalActivity,glucose,age,bp } });
+    navigate('/result', { state: {predictions,bmi,junk,loading,heredity,physicalActivity,glucose,age,bp}});
     setLoading(false)
   }
   
