@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/Result.css';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import logo from './logo.png'
+import logo from '../logo.png'
 
 
 

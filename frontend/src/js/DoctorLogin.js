@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import '../styles/Login.css'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
-import logo from './logo.png'
+import logo from '../logo.png'
 function DoctorLogin() {
   
     const [email,setEmail]=useState()

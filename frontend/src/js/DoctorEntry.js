@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/DoctorEntry.css';
 import axios from 'axios';
-import logo from './logo.png'
+import logo from '../logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 
 

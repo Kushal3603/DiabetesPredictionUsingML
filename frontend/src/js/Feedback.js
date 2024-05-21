@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Feedback.css";
 import axios from "axios";
-import logo from './logo.png'
+import logo from '../logo.png'
 import { Link, useNavigate } from "react-router-dom";
 
 function Feedback() {

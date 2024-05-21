@@ -2,7 +2,7 @@ import axios from 'axios';
 import '../styles/Login.css';
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from './logo.png'
+import logo from '../logo.png'
 
 const UserHistory = () => {
   const [data, setData] = useState([]);

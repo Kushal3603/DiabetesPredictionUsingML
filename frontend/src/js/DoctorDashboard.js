@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Login.css'
-import logo from './logo.png'
+import logo from '../logo.png'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from './Footer'
 import DoctorHeroPage from './DoctorHeroPage'

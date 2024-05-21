@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
 import '../styles/Login.css'
-import logo from './logo.png'
+import logo from '../logo.png'
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');

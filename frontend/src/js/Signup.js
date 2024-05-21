@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/Login.css'
-import logo from './logo.png'
+import logo from '../logo.png'
 import { Link, useNavigate } from 'react-router-dom';
 
 function Signup() {
