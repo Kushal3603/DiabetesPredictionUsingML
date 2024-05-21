@@ -33,7 +33,6 @@ function Feedback() {
     axios.post('https://diabetespredictionusingml.onrender.com/doctorFeedback',{feedback:feedback,name:feedbackName})
       .then(() => {
         console.log("Data submitted");
-        // Fetch updated feedbacks after successful submission
         fetchFeedbacks();
       })
       .catch(e=>console.log(e))
