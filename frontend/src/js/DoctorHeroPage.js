@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine, faUserMd, faHeartbeat, faChartBar } from '@fortawesome/free-solid-svg-icons';
-import './DoctorHeroPage.css';
+import '../styles/DoctorHeroPage.css';
 import { Link } from 'react-router-dom';
 
 

@@ -1,45 +1,45 @@
-import React,{useState} from 'react'
-import './Login.css'
+import React, { useState } from 'react'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
+import '../styles/Login.css'
 import logo from './logo.png'
-function DoctorLogin() {
-  
-    const [email,setEmail]=useState()
-    const [password,setPassword]=useState()
-    const [errors,setErrors]=useState({
+function Login() {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
-    })
+    
 
-    const navigate=useNavigate();
-    const handleSubmit=(event)=>{
+    const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://diabetespredictionusingml.onrender.com/doctorLogin',{email,password})
-        .then(result=>{
-            console.log(result)
-            if(result.data==="Success"){
-                navigate('/doctorDashboard')
-            }
-            else{
-                
-            }
-            
-        })
-       
-        
-    }
+        navigate("/");
+        axios.post('https://diabetespredictionusingml.onrender.com/login', { email, password })
+            .then(result => {
+                console.log(result);
+                if (result.data === "Success") {
+                    localStorage.setItem("userEmail", email);
+                    navigate('/');
+                } else {
+                    // Handle login failure
+                }
+            })
+            .catch(error => {
+                console.error('Login Error:', error);
+            });
+    };
 
     
-return (
-    
+
+    return (
         <>
         <header>
         <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
         <nav className="navigation">
-          <Link to="/doctorDashboard">Home</Link>
+          <Link to="/">Home</Link>
+          <Link to="/userHistory">User History</Link>
           <Link to="/feedback">Feedback</Link>
-          <Link to="/doctorAbout">About</Link>
-          <button className="loginbtn" >Login</button>
+          <Link to="/about">About</Link>
+          <button className="loginbtn">Login</button>
         </nav>
         
       </header>
@@ -47,12 +47,12 @@ return (
       <div className="login">
           <span className="icon-close" style={{marginLeft:'311px'}}><i className="fa-solid fa-xmark"></i></span>
           <div className="form-box login">
-              <h2 style={{color:'#fff'}}>Doctor Login</h2>
+              <h2 style={{color:'#fff'}}>Patient Login</h2>
               <form action="#" onSubmit={handleSubmit} method="post">
                   <div className="input-box">
                       <span className="icon">
                           <i style={{color:'#fff'}} className="fa-solid fa-envelope"></i>
-                      </span>
+                      </span>   
                       <input style={{color:'#fff'}} onChange={(e)=>setEmail(e.target.value)} value={email} type="email" className="email" required/>
                       <label style={{color:'#fff'}}>Email</label>
                   </div>
@@ -68,7 +68,7 @@ return (
               </div>
                   <button type="submit" className="login-btn">Login</button>
                   <div className="login-register">
-                      <p style={{color:'#fff'}}>Don't have an account? <Link to='/doctorSignup' id="reg" className="register-link" style={{color:'#fff'}}>Register</Link></p>
+                      <p style={{color:'#fff'}}>Don't have an account? <Link to='/signup' id="reg" style={{color:'#fff'}}className="register-link">Register</Link></p>
                   </div>
               </form>
           </div>
@@ -79,4 +79,4 @@ return (
         )
 }
 
-export default DoctorLogin
+export default Login

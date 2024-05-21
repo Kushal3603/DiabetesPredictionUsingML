@@ -1,5 +1,5 @@
 import React from 'react';
-import './HeroPage.css';
+import '../styles/HeroPage.css';
 import { useNavigate,Link } from 'react-router-dom';
 
 

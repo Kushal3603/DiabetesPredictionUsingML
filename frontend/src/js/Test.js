@@ -1,11 +1,10 @@
 
 import React, { useState, useEffect } from "react";
-import './Test.css'
+import '../styles/Test.css'
 import { Questions } from "./Questions";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import logo from './logo.png'
-import Footer from "./Footer";
 import Loader from "./Loader";
 
 function predictWithMLModel(heredity, physicalActivity, junk, glucose, bp, bmi, age) {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Feedback.css";
+import "../styles/Feedback.css";
 import axios from "axios";
 import logo from './logo.png'
 import { Link, useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ function Feedback() {
   }, []);
 
   const fetchFeedbacks = () => {
-    axios.get('https://diabetespredictionusingml.onrender.com/doctorFeedback')
+    axios.get('https://diabetespredictionusingml.onrender.com/feedback')
       .then(response => {
         setFeedbacks(response.data);
       })
@@ -30,7 +30,7 @@ function Feedback() {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("Feedback submitted:", feedback);
-    axios.post('https://diabetespredictionusingml.onrender.com/doctorFeedback',{feedback:feedback,name:feedbackName})
+    axios.post('https://diabetespredictionusingml.onrender.com/feedback',{feedback:feedback,name:feedbackName})
       .then(() => {
         console.log("Data submitted");
         // Fetch updated feedbacks after successful submission
@@ -47,8 +47,13 @@ function Feedback() {
   };
 
   const handleClick=()=>{
-    localStorage.removeItem('userEmail')
-    navigate('/')
+    if (isLoggedIn) {
+      localStorage.removeItem('userEmail');
+      setIsLoggedIn(false);
+      navigate('/');
+    } else {
+      navigate('/');
+    }
   }
 
   return (
@@ -56,10 +61,11 @@ function Feedback() {
     <header>
       <Link to="/" className="logo"><img src={logo} alt='Logo' style={{height:'2em',marginLeft:'-60px'}}/><h2 style={{marginTop:'-50px'}}> GlucoWise</h2></Link>
         <nav className="navigation">
-          <Link to="/doctorDashboard">Home</Link>
-          <Link to="/doctorFeedback">Feedback</Link>
-          <Link to="/doctorAbout">About</Link>
-          <button className="loginbtn" onClick={handleClick}>Logout</button>
+          <Link to="/">Home</Link>
+          <Link to="/userHistory">User History</Link>
+          <Link to="/feedback">Feedback</Link>
+          <Link to="/about">About</Link>
+          <button className="loginbtn" onClick={handleClick}>{isLoggedIn ? 'Logout' : 'Login'}</button>
         </nav>
       </header>
       <div style={{marginLeft:'-73px'}}>
@@ -94,7 +100,7 @@ function Feedback() {
       </form>
     </div>
     <div className="feedback-display-container">
-         <center><h1 className="feedback-title">Feedback from Doctors</h1></center>
+         <center><h1 className="feedback-title">Feedbacks from Users</h1></center>
         
         {feedbacks.map((feedbackItem, index) => (
           <div className="feedback">
@@ -107,6 +113,7 @@ function Feedback() {
         
       </div>
       </div>
+      {/* <Footer/> */}
     </>
   );
 }

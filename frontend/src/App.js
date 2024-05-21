@@ -1,18 +1,21 @@
-import Login from "./Login";
+
 import {BrowserRouter,Route,Routes} from 'react-router-dom'
-import Signup from "./Signup";
-import Dashboard from "./Dashboard";
-import DoctorLogin from "./DoctorLogin";
-import DoctorSignup from "./DoctorSignup";
-import Test from "./Test";
-import DoctorDashboard from "./DoctorDashboard";
-import DoctorEntry from "./DoctorEntry";
-import Result from "./Result";
-import UserHistory from "./UserHistory";
-import Feedback from "./Feedback";
-import DoctorFeedback from "./DoctorFeedback";
-import About from "./About";
-import DoctorAbout from "./DoctorAbout";
+import Login from './js/Login';
+import DoctorLogin from './js/DoctorLogin';
+import Signup from './js/Signup';
+import Test from './js/Test';
+import Result from './js/Result';
+import DoctorAbout from './js/DoctorAbout'
+import Dashboard from './js/Dashboard'
+import Feedback from './js/Feedback'
+import DoctorFeedback from './js/DoctorFeedback'
+import About from './js/About'
+import DoctorEntry from './js/DoctorEntry'
+import DoctorDashboard from './js/DoctorDashboard'
+import DoctorSignup from './js/DoctorSignup'
+import UserHistory from './js/UserHistory'
+
+
 function App() {
   return (
     <BrowserRouter>

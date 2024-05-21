@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './Login.css';
-import './DropdownList.css';
+import '../styles/Login.css';
+import '../styles/DropdownList.css';
 import { Link } from 'react-router-dom';
 import HeroPage from './HeroPage';
 import logo from './logo.png'
